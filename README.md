@@ -88,14 +88,15 @@ Edit `src/data/site.yaml`:
 
 ```yaml
 headline: I use data science to answer questions about education, technology, and policy
-introduction: I build rigorous evidence at the intersection of...
 ```
 
 The `role_line` appears above the headline.
 
+The homepage also reads the `resume` block. While `enabled` is `false`, it shows a disabled Download CV action. Add the file at the configured path and set `enabled: true` to activate the download.
+
 ### 2. Update the homepage bio and key areas
 
-Edit `src/data/profile.yaml`. The `biography` field supplies the short bio and `biography_source` links to its source. The `about` block supplies the more personal About-page copy. The `key_areas` list must contain exactly three entries, each with a title and concise description.
+Edit `src/data/profile.yaml`. The two-item `biography` list supplies the short bio and `biography_source` links to its source. The `about` block supplies the more personal About-page copy. The `key_areas` list must contain exactly three entries, each with a title and concise description.
 
 Edit `src/data/experience.yaml` to update the concise career chronology on the Work page.
 

@@ -40,7 +40,6 @@ const siteData = defineCollection({
     description: z.string(),
     role_line: z.string(),
     headline: z.string(),
-    introduction: z.string(),
     email: z.email(),
     portrait: z.object({
       mode: z.enum(["monogram", "image"]),
@@ -54,7 +53,7 @@ const siteData = defineCollection({
 const profileData = defineCollection({
   loader: glob({ base: "./src/data", pattern: "profile.yaml" }),
   schema: z.object({
-    biography: z.string(),
+    biography: z.array(z.string()).length(2),
     biography_source: z.url(),
     about: z.object({
       headline: z.string(),

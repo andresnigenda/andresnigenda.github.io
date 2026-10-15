@@ -12,15 +12,35 @@ const { data: profile } = await requiredEntry("profileData", "profile");
     <div>
       <p class="eyebrow">{site.role_line}</p>
       <h1 id="hero-title">{site.headline}</h1>
-      <p class="hero-intro">{site.introduction}</p>
       <div class="hero-links">
         <a href="/projects/">View work</a>
         <a href="/contact/">Contact</a>
+        {site.resume.enabled ? (
+          <a href={site.resume.file} download>Download CV</a>
+        ) : (
+          <button type="button" disabled title="CV coming soon">Download CV</button>
+        )}
       </div>
     </div>
     <div class:list={["portrait", { "portrait-image": site.portrait.mode === "image" }]}>
       {site.portrait.mode === "image" ? (
-        <img src={site.portrait.file} alt={site.portrait.alt} width="1158" height="1235" />
+        <>
+          <img
+            class="portrait-person"
+            src={site.portrait.file}
+            alt={site.portrait.alt}
+            width="1158"
+            height="1235"
+          />
+          <img
+            class="portrait-dog"
+            src="/images/portrait-dog.jpg"
+            alt=""
+            width="900"
+            height="900"
+            aria-hidden="true"
+          />
+        </>
       ) : (
         <span class="monogram" aria-hidden="true">AN</span>
       )}
@@ -30,7 +50,7 @@ const { data: profile } = await requiredEntry("profileData", "profile");
   <section class="content-section" aria-labelledby="bio">
     <SectionHeading number="01" title="Short bio" id="bio" />
     <div class="bio-block">
-      <p>{profile.biography}</p>
+      {profile.biography.map((paragraph) => <p>{paragraph}</p>)}
       <a href={profile.biography_source}>Stanford SCALE profile<span aria-hidden="true"> ↗</span></a>
     </div>
   </section>

@@ -119,7 +119,7 @@ img {
 }
 
 .site-header nav a {
-  font-size: 0.88rem;
+  font-size: 1.02rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-decoration: none;
@@ -154,8 +154,8 @@ img {
   grid-template-columns: minmax(0, 1fr) 280px;
   gap: clamp(48px, 7vw, 82px);
   align-items: end;
-  min-height: 610px;
-  padding: 88px 0 82px;
+  min-height: 440px;
+  padding: 48px 0 88px;
 }
 
 .eyebrow,
@@ -197,19 +197,30 @@ img {
   margin-top: 30px;
 }
 
-.hero-links a {
+.hero-links a,
+.hero-links button {
+  font-family: inherit;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
+.hero-links button {
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
 .portrait {
   position: relative;
   aspect-ratio: 1158 / 1235;
-  align-self: center;
   display: grid;
   place-items: center;
+  transform: translateY(52px);
 }
 
 .portrait:not(.portrait-image)::before {
@@ -236,10 +247,31 @@ img {
 }
 
 .portrait img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.portrait-person,
+.portrait-dog {
+  transition: opacity 180ms ease;
+}
+
+.portrait-dog {
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .portrait-image:hover .portrait-person {
+    opacity: 0;
+  }
+
+  .portrait-image:hover .portrait-dog {
+    opacity: 1;
+  }
 }
 
 .content-section {
@@ -275,6 +307,10 @@ img {
   margin: 0;
   font-family: var(--serif);
   font-size: 1.2rem;
+}
+
+.bio-block p + p {
+  margin-top: 1.15em;
 }
 
 .bio-block a {
@@ -589,7 +625,7 @@ img {
   }
 
   .site-header nav a {
-    font-size: 0.68rem;
+    font-size: 0.82rem;
   }
 
   .hero {
@@ -603,6 +639,7 @@ img {
   .portrait {
     width: 160px;
     align-self: flex-end;
+    transform: none;
   }
 
   .hero h1,

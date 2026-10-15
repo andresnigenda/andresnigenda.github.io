@@ -19,12 +19,16 @@ const selectedWork = [...work, ...publications].sort(
 >
   <header class="page-intro">
     <p class="eyebrow">Work</p>
-    <h1>Experience and selected work</h1>
-    <p>A selection of work using data science, AI, and program evaluation to answer questions in education and public policy.</p>
+    <h1>Selected work and experience</h1>
   </header>
 
+  <section class="content-section" aria-labelledby="selected-projects">
+    <SectionHeading number="01" title="Selected projects" id="selected-projects" />
+    <WorkIndex entries={selectedWork} headingLevel="h2" />
+  </section>
+
   <section class="content-section" aria-labelledby="experience">
-    <SectionHeading number="01" title="Experience" id="experience" />
+    <SectionHeading number="02" title="Experience" id="experience" />
     <div class="experience-list">
       {experience.map((item) => (
         <article class="experience-row">
@@ -43,10 +47,5 @@ const selectedWork = [...work, ...publications].sort(
         </article>
       ))}
     </div>
-  </section>
-
-  <section class="content-section" aria-labelledby="selected-projects">
-    <SectionHeading number="02" title="Selected projects" id="selected-projects" />
-    <WorkIndex entries={selectedWork} headingLevel="h2" />
   </section>
 </BaseLayout>
