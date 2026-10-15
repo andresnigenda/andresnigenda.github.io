@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import WorkIndex from "../../components/WorkIndex.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const publications = (
+  await getCollection("publications", ({ data }) => !data.draft)
+).sort((left, right) => right.data.year - left.data.year);
+---
+
+<BaseLayout
+  title="Publications"
+  description="Selected publications and working papers by Andrés Nigenda."
+>
+  <header class="page-intro">
+    <p class="eyebrow">Publication index</p>
+    <h1>Publications</h1>
+    <p>Publications are one part of a broader portfolio of applied research and technical work.</p>
+  </header>
+  <WorkIndex entries={publications} headingLevel="h2" />
+</BaseLayout>

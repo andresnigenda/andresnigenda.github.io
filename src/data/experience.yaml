@@ -1,0 +1,20 @@
+- role: Lead Data Scientist
+  organization: Stanford University
+  period: Current
+  teams:
+    - SCALE Initiative
+    - AI Hub for Education
+  summary: At Stanford's SCALE Initiative, I lead data science for research on how students and educators use AI and whether it improves learning.
+  details:
+    - Research the measurement of durable skills using naturalistic chat data.
+    - Build reproducible pipelines that connect data collection, cleaning, analysis, and reporting.
+    - Lead the development of initiative-wide knowledge management for data science and programming.
+- role: Lead Data Scientist
+  organization: Mathematica
+  period: Previous
+  summary: Joined Mathematica in 2020 and led data science and engineering work for federal agencies including the National Science Foundation and the U.S. Department of Labor.
+  details:
+    - Led analysis and reporting for a longitudinal data collection system supporting human capital development programs.
+    - Applied causal and quasi-experimental methods, including synthetic control designs, to evaluate programs using administrative data.
+    - Used natural language processing, machine learning, and data visualization with complex administrative and text data.
+    - Managed technical teams building data pipelines and analytic tools for policy research.

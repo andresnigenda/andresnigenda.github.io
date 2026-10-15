@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { requiredEntry } from "../../lib/data";
+
+const { data: site } = await requiredEntry("siteData", "site");
+const { data: profile } = await requiredEntry("profileData", "profile");
+---
+
+<BaseLayout title="Contact" description={`Contact ${site.name}.`}>
+  <header class="page-intro contact-intro">
+    <p class="eyebrow">Contact</p>
+    <h1>Get in touch.</h1>
+    <p>If you’d like to talk about research, data science, or something else entirely, send me a note.</p>
+    <nav class="contact-actions" aria-label="Contact options">
+      <a href={`mailto:${site.email}`}>Email me</a>
+      {profile.profiles.map((item) => (
+        <a href={item.url}>{item.label}<span aria-hidden="true"> ↗</span></a>
+      ))}
+    </nav>
+  </header>
+</BaseLayout>

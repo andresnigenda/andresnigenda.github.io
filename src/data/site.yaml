@@ -1,0 +1,15 @@
+name: Andrés Nigenda
+title: Data Scientist and Researcher
+organization: Stanford University
+canonical_url: https://andresnigenda.github.io/
+description: Data scientist and researcher at Stanford studying artificial intelligence, education, and public policy.
+role_line: Data Scientist and Researcher · Stanford University
+headline: I use data science to answer questions about education, technology, and policy
+email: andresnigenda@gmail.com
+portrait:
+  mode: image
+  file: /images/portrait-top-20.jpg
+  alt: Andrés Nigenda smiling and wearing green glasses
+resume:
+  enabled: false
+  file: /files/resume.pdf

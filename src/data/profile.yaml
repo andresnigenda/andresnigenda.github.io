@@ -1,0 +1,22 @@
+biography:
+  - At Stanford's AI Hub for Education within the SCALE Initiative, I combine data science and program evaluation to study how AI can benefit students, schools, and learning. My work uses natural language processing, machine learning, and causal inference with complex administrative, survey, and unstructured text data. I am particularly committed to helping steer AI toward the public good.
+  - Before Stanford, I led data science, research, and engineering work at Mathematica for federal agencies including the National Science Foundation and the U.S. Department of Labor. I hold an MS in Computational Analysis and Public Policy from the University of Chicago and a BA in Economics from the Instituto Tecnológico Autónomo de México.
+biography_source: https://scale.stanford.edu/people/andres-nigenda
+about:
+  headline: A little more about me.
+  path: I came to data science through economics and public policy. Over time, my work has expanded across research, engineering, and program evaluation, and I remain most interested in contributing to the public good.
+  personal: Outside work, I spend a lot of time with my partner and my dog, Twigs. I also enjoy traveling to visit friends who live far away when I have the chance, getting better at tennis, listening to music, and playing board games, including the occasional RPG.
+key_areas:
+  - title: AI and education
+    description: How students and educators use AI and what those tools mean for learning.
+  - title: Policy research
+    description: Measurement, data annotation, and causal and quasi-experimental approaches to practical questions in education and public policy.
+  - title: NLP and research data systems
+    description: Natural language processing and reproducible pipelines for working with complex administrative, survey, and text data.
+profiles:
+  - label: GitHub
+    url: https://github.com/andresnigenda
+  - label: LinkedIn
+    url: https://linkedin.com/in/andresnigenda
+  - label: ORCID
+    url: https://orcid.org/0009-0001-6874-719X

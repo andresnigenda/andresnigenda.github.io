@@ -1,0 +1,42 @@
+---
+import SectionHeading from "../../components/SectionHeading.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { requiredEntry } from "../../lib/data";
+
+const { data: profile } = await requiredEntry("profileData", "profile");
+---
+
+<BaseLayout title="About" description="More about Andrés Nigenda beyond his work in data science and research.">
+  <header class="page-intro about-intro">
+    <p class="eyebrow">About</p>
+    <h1>{profile.about.headline}</h1>
+    <p>{profile.about.path}</p>
+  </header>
+
+  <section class="content-section" aria-labelledby="outside-work">
+    <SectionHeading number="01" title="Outside work" id="outside-work" />
+    <div class="about-copy">
+      <p>{profile.about.personal}</p>
+    </div>
+    <div class="about-gallery">
+      <figure class="about-photo about-photo-wide">
+        <img
+          src="/images/about-hike.jpg"
+          alt="Andrés and a friend outdoors with mountains in the distance"
+          width="1800"
+          height="1350"
+        />
+        <figcaption>Visiting my friend Tomás in Chile!</figcaption>
+      </figure>
+      <figure class="about-photo about-photo-tall">
+        <img
+          src="/images/about-dog.jpg"
+          alt="Andrés's dog resting on a couch"
+          width="1200"
+          height="1600"
+        />
+        <figcaption>Twigs taking a mandatory nap.</figcaption>
+      </figure>
+    </div>
+  </section>
+</BaseLayout>
