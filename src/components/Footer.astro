@@ -1,0 +1,17 @@
+---
+import { requiredEntry } from "../lib/data";
+
+const { data: site } = await requiredEntry("siteData", "site");
+const { data: profile } = await requiredEntry("profileData", "profile");
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <p>© {year} {site.name}</p>
+  <nav aria-label="Footer navigation">
+    <a href="/contact/">Contact</a>
+    {profile.profiles.map((item) => (
+      <a href={item.url}>{item.label}<span aria-hidden="true"> ↗</span></a>
+    ))}
+  </nav>
+</footer>

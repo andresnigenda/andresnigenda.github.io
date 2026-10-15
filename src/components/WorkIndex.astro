@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Entry = CollectionEntry<"work"> | CollectionEntry<"publications">;
+
+interface Props {
+  entries: Entry[];
+  headingLevel?: "h2" | "h3";
+}
+
+const { entries, headingLevel = "h3" } = Astro.props;
+const Heading = headingLevel;
+
+function entryHref(entry: Entry) {
+  const section = entry.collection === "publications" ? "publication" : "work";
+  if (entry.data.internal_page) return `/${section}/${entry.data.slug}/`;
+  return entry.data.external_url ?? `/${section}/${entry.data.slug}/`;
+}
+---
+
+<div class="work-index">
+  {entries.map((entry) => (
+    <article class="work-row">
+      <div class="work-year">{entry.data.year}</div>
+      <div class="work-main">
+        <Heading>
+          <a href={entryHref(entry)}>
+            {entry.data.title}
+            {!entry.data.internal_page && <span aria-hidden="true"> ↗</span>}
+          </a>
+        </Heading>
+        <p>{entry.data.summary}</p>
+        <ul class="tag-list" aria-label="Topics">
+          {entry.data.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </div>
+      <div class="work-meta">
+        <span>{entry.data.work_type}</span>
+        <span>{entry.data.organization}</span>
+      </div>
+    </article>
+  ))}
+</div>

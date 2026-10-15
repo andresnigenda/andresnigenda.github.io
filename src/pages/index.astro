@@ -1,0 +1,49 @@
+---
+import SectionHeading from "../components/SectionHeading.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { requiredEntry } from "../lib/data";
+
+const { data: site } = await requiredEntry("siteData", "site");
+const { data: profile } = await requiredEntry("profileData", "profile");
+---
+
+<BaseLayout>
+  <section class="hero" aria-labelledby="hero-title">
+    <div>
+      <p class="eyebrow">{site.role_line}</p>
+      <h1 id="hero-title">{site.headline}</h1>
+      <p class="hero-intro">{site.introduction}</p>
+      <div class="hero-links">
+        <a href="/projects/">View work</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div class:list={["portrait", { "portrait-image": site.portrait.mode === "image" }]}>
+      {site.portrait.mode === "image" ? (
+        <img src={site.portrait.file} alt={site.portrait.alt} width="1158" height="1235" />
+      ) : (
+        <span class="monogram" aria-hidden="true">AN</span>
+      )}
+    </div>
+  </section>
+
+  <section class="content-section" aria-labelledby="bio">
+    <SectionHeading number="01" title="Short bio" id="bio" />
+    <div class="bio-block">
+      <p>{profile.biography}</p>
+      <a href={profile.biography_source}>Stanford SCALE profile<span aria-hidden="true"> ↗</span></a>
+    </div>
+  </section>
+
+  <section class="content-section" aria-labelledby="key-areas">
+    <SectionHeading number="02" title="Key areas" id="key-areas" />
+    <ol class="area-list">
+      {profile.key_areas.map((area) => (
+        <li>
+          <h3>{area.title}</h3>
+          <p>{area.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>
